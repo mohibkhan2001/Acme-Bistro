@@ -4,7 +4,9 @@
   box-sizing: border-box;
   font-family: "Poppins";
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 .header {
   height: 70vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -153,6 +155,7 @@
   .about-desc {
     width: 100%; /* Adjust width to full width on small devices */
     margin-right: 0; /* Remove margin-right */
+    overflow: hidden;
     /* height: 100%; */
   }
   .about-desc h1{
@@ -165,6 +168,34 @@
     font-size: 0.8rem;
   }
 }
+/* Media query for screens between 772px and 1300px */
+@media (min-width: 772px) and (max-width: 1300px) {
+  .about-brand-name {
+    width: 30%; /* Adjust width to fit better on larger devices */
+    font-size: 3rem; 
+  }
+
+  .about-desc {
+    width: 40%; /* Adjust width to fit better on larger devices */
+    padding: 20px; /* Add padding inside the description */
+   
+  }
+
+  .about-desc h1 {
+    font-size: 2.5rem;
+    padding-bottom:20px ;
+  }
+
+  .about-desc span {
+    font-size: 0.9rem; /* Adjust span font size */
+  }
+
+  .about-img {
+    width: 30%; /* Adjust width for the image */
+  }
+
+}
+
 
 /* Chef Special section */
 
@@ -172,9 +203,14 @@
   display: flex;
   overflow-x: auto; /* Enable horizontal scrolling */
   overflow-y: hidden; /* Hide vertical scrollbars */
-  /* margin: 30px 0; */
-  /* scroll-snap-type: x mandatory;  */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
 }
+
+.horizontal-section::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
 
 .horizontal-section section {
   flex: 1 0 100%; /* Make each section take up full viewport width */
@@ -198,17 +234,57 @@
   padding: 20px;
   font-size: 3rem;
   color: #ff6347;
-  border: 1px solid white;
+  position: relative;
+  z-index: -1;
+  /* background-attachment: fixed; */
   /* padding: 0 100px; */
 }
-.specialDish h1{
-  text-shadow: 0 0 2px white;
+.specialDish::before{
+  content: "";
+  position: absolute;
+  height: 70%;
+  width: 10%;
+  background-color: #ff6347;
+  left: 0;
+  z-index: 1;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
+.specialDish h1{
+  text-shadow: 0 0 2px white;
+ padding-left: 150px;
+}
+.specialDish p{
+  font-size: 1.5rem;
+  color: #000;
+  z-index: 1;
+  transform: rotate(-90deg);
+  position: absolute;
+  left: 0;
+
+}
 
 .specialDish img {
   max-width: 20%;
   height: auto;
   border-radius: 12px;
  
+}
+.special-heading {
+  font-size: 1.2rem; /* Adjust size as needed */
+  color: #ff6347; /* Color to match your theme */
+  text-shadow: 0 0 2px #000; /* Optional: add shadow for better visibility */
+  margin-bottom: 10px; /* Space below the heading */
+}
+@media (max-width: 768px){
+  .specialDish{
+    flex-direction: column;
+  }
+  .specialDish h1{
+    font-size: 2rem;
+  }
+  .specialDish img{
+    max-width: 40%;
+  }
 }
