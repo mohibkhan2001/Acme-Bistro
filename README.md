@@ -1,6 +1,8 @@
 # Acme Bistro - Restaurant Landing Page
 
 Welcome to the **Acme Bistro** restaurant landing page project! This project showcases a modern, responsive, and visually appealing design for a restaurant's online presence. It includes features like a parallax effect, interactive menu items, category filtering, and more.
+## Preview
+![image](https://github.com/user-attachments/assets/f44a5d5c-3a05-4fff-b1d7-c6fbefea7388)
 
 ## Table of Contents
 
