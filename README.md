@@ -1,6 +1,6 @@
 # Acme Bistro - Restaurant Landing Page
 
-Welcome to the **Acme Bistro** project! This repository contains the code for a modern, responsive restaurant landing page designed and developed by Mohib Khan. The landing page features a sleek design with sections for the restaurant's brand, chef's specials, and an interactive menu.
+Welcome to the **Acme Bistro** restaurant landing page project! This project showcases a modern, responsive, and visually appealing design for a restaurant's online presence. It includes features like a parallax effect, interactive menu items, category filtering, and more.
 
 ## Table of Contents
 
@@ -13,6 +13,7 @@ Welcome to the **Acme Bistro** project! This repository contains the code for a 
 ## Features
 
 - **Responsive Design**: Adapts seamlessly to various screen sizes and devices.
+- **Parallax Effect**: The page incorporates a parallax scrolling effect, adding depth and a dynamic feel to the user experience.
 - **Horizontal Scrolling**: Smooth horizontal scrolling for the Chef's Specials section.
 - **Interactive Menu**: Menu items that flip on hover, displaying details on the back.
 - **Category Filtering**: Filter menu items by categories such as Burgers, Pastas, Steaks, and Desserts.
@@ -51,3 +52,5 @@ Contributions are what make the open-source community such an amazing place to l
 ## License
 
 This project is licensed under the MIT License.
+## Contact Me
+-- **Email**: khanmohib200@gmail.com
