@@ -9,6 +9,7 @@ Welcome to the **Acme Bistro** restaurant landing page project! This project sho
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 - [License](#license)
+- [Contact](#contact-me)
 
 ## Features
 
