@@ -1,7 +1,3 @@
-Here's the updated GitHub README without the Demo and Project Structure sections:
-
----
-
 # Acme Bistro - Restaurant Landing Page
 
 Welcome to the **Acme Bistro** project! This repository contains the code for a modern, responsive restaurant landing page designed and developed by Mohib Khan. The landing page features a sleek design with sections for the restaurant's brand, chef's specials, and an interactive menu.
