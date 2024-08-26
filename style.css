@@ -4,9 +4,15 @@
   box-sizing: border-box;
   font-family: "Poppins";
 }
+html{
+  scroll-behavior: smooth;
+}
+
 body::-webkit-scrollbar {
   display: none;
+ 
 }
+/* Header styles */
 .header {
   height: 70vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -17,17 +23,61 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  position: relative; /* Ensure header content can be positioned */
 }
 
-.header h1,
-.header p {
+.navbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-weight: 100;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin: 15px 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ff6347;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Adjust header content for navbar presence */
+.header-content h1,
+.header-content p {
   color: #ffff;
   text-align: center;
 }
 
-.header .highlight {
-  color: #ff6347 !important; /* Change this to the color you want */
+.header-content .highlight {
+  color: #ff6347 !important;
 }
 
 .header h1 {
@@ -37,14 +87,18 @@ body::-webkit-scrollbar {
 .header p {
   font-size: 1.3rem;
   padding: 5px;
+  font-family: "Dancing Script";
 }
 
-@media (max-width: 530px) {
+@media (min-width: 530px) and (max-width: 980px) {
   .header h1 {
     font-size: 2rem;
   }
   .header p {
     font-size: 0.9rem;
+  }
+  .navbar {
+    display: none;
   }
 }
 
@@ -53,21 +107,7 @@ body::-webkit-scrollbar {
 .about-section {
   height: 60vh;
   min-width: 100%;
-  background-image: repeating-linear-gradient(
-      45deg,
-      rgb(255, 255, 255) 0px,
-      rgb(255, 255, 255) 10px,
-      transparent 10px,
-      transparent 11px
-    ),
-    repeating-linear-gradient(
-      135deg,
-      rgb(255, 255, 255) 0px,
-      rgb(255, 255, 255) 10px,
-      transparent 10px,
-      transparent 11px
-    ),
-    linear-gradient(90deg, hsl(256, 7%, 84%), hsl(256, 7%, 84%));
+  background-image: radial-gradient(circle at 16% 83%, rgba(148, 148, 148,0.06) 0%, rgba(148, 148, 148,0.06) 50%,rgba(63, 63, 63,0.06) 50%, rgba(63, 63, 63,0.06) 100%),radial-gradient(circle at 68% 87%, rgba(66, 66, 66,0.06) 0%, rgba(66, 66, 66,0.06) 50%,rgba(105, 105, 105,0.06) 50%, rgba(105, 105, 105,0.06) 100%),radial-gradient(circle at 38% 50%, rgba(123, 123, 123,0.06) 0%, rgba(123, 123, 123,0.06) 50%,rgba(172, 172, 172,0.06) 50%, rgba(172, 172, 172,0.06) 100%),linear-gradient(90deg, hsl(18,0%,1%),hsl(18,0%,1%));
   background-attachment: fixed;
   display: flex;
   align-items: center; /* Center items vertically */
@@ -82,21 +122,26 @@ body::-webkit-scrollbar {
 }
 
 .about-brand-name {
-  height: 70%;
-  width: 10%;
+  height: 50%;
+  width: 5%;
   padding: 20px; /* Add padding inside the brand name section */
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 4rem;
   text-align: center;
+  position: relative;
 }
 
 .about-brand-name h1 {
   margin: 0; /* Remove default margin */
-  line-height: 1.1; /* Adjust line height */
+  line-height: 1.1;
+  width: 40%;
 }
 
+.about-brand-name span {
+  margin-bottom: 500px;
+}
 .about-brand-name h1 .highlight {
   color: #ff6347; /* Ensure this matches the color you want */
   text-shadow: 0 0 2px #000;
@@ -112,7 +157,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   justify-content: center;
   background-color: #ff6347;
-  box-shadow:  0 0 10px #000;
+  box-shadow: 0 0 10px #000;
   position: relative;
 }
 
@@ -138,7 +183,7 @@ body::-webkit-scrollbar {
   width: 100%; /* Ensure the image fits its container */
   height: auto;
   display: block;
-  box-shadow:  0 0 10px #000;
+  box-shadow: 0 0 10px #000;
 }
 
 /* Media query for small devices */
@@ -146,25 +191,24 @@ body::-webkit-scrollbar {
   .about-img {
     display: none; /* Hide the image on small devices */
   }
-  
+
   .about-brand-name {
-    width: 100%; /* Adjust width to full width on small devices */
-    font-size: 3rem; /* Adjust font size for better visibility */
+    /* width: 100%;
+    font-size: 2.5rem; 
+    margin-right: 50px; */
+    display: none;
   }
-  
+
   .about-desc {
     width: 100%; /* Adjust width to full width on small devices */
-    margin-right: 0; /* Remove margin-right */
-    overflow: hidden;
-    /* height: 100%; */
   }
-  .about-desc h1{
+  .about-desc h1 {
     position: relative;
   }
-  .about-desc h1{
+  .about-desc h1 {
     font-size: 2rem;
   }
-  .about-desc span{
+  .about-desc span {
     font-size: 0.8rem;
   }
 }
@@ -172,18 +216,17 @@ body::-webkit-scrollbar {
 @media (min-width: 772px) and (max-width: 1300px) {
   .about-brand-name {
     width: 30%; /* Adjust width to fit better on larger devices */
-    font-size: 3rem; 
+    font-size: 3rem;
   }
 
   .about-desc {
     width: 40%; /* Adjust width to fit better on larger devices */
     padding: 20px; /* Add padding inside the description */
-   
   }
 
   .about-desc h1 {
     font-size: 2.5rem;
-    padding-bottom:20px ;
+    padding-bottom: 20px;
   }
 
   .about-desc span {
@@ -193,9 +236,7 @@ body::-webkit-scrollbar {
   .about-img {
     width: 30%; /* Adjust width for the image */
   }
-
 }
-
 
 /* Chef Special section */
 
@@ -211,7 +252,6 @@ body::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
 }
 
-
 .horizontal-section section {
   flex: 1 0 100%; /* Make each section take up full viewport width */
   scroll-snap-align: start; /* Snap to the start of each section */
@@ -221,14 +261,50 @@ body::-webkit-scrollbar {
 .chef-special {
   display: flex;
   flex-direction: row; /* Align items horizontally */
-  margin: 30px 0;
+  /* margin: 30px 0; */
 }
 
 .specialDish {
   min-width: 100%;
-  background-color: #000;
+  background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 88%,
+      rgba(200, 200, 200, 0.07) 88%,
+      rgba(200, 200, 200, 0.07) 93%,
+      transparent 93%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 83%,
+      rgba(200, 200, 200, 0.07) 83%,
+      rgba(200, 200, 200, 0.07) 91%,
+      transparent 91%,
+      transparent 100%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 0%,
+      transparent 43%,
+      rgba(200, 200, 200, 0.07) 43%,
+      rgba(200, 200, 200, 0.07) 50%,
+      transparent 50%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 16%,
+      rgba(200, 200, 200, 0.07) 16%,
+      rgba(200, 200, 200, 0.07) 56%,
+      transparent 56%,
+      transparent 100%
+    ),
+    linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0));
+  background-attachment: fixed;
   display: flex;
-  /* flex-direction:; */
   align-items: center;
   justify-content: space-evenly;
   padding: 20px;
@@ -236,10 +312,8 @@ body::-webkit-scrollbar {
   color: #ff6347;
   position: relative;
   z-index: -1;
-  /* background-attachment: fixed; */
-  /* padding: 0 100px; */
 }
-.specialDish::before{
+.specialDish::before {
   content: "";
   position: absolute;
   height: 70%;
@@ -251,25 +325,24 @@ body::-webkit-scrollbar {
   border-bottom-right-radius: 15px;
 }
 
-.specialDish h1{
-  text-shadow: 0 0 2px white;
- padding-left: 150px;
+.specialDish h1 {
+  text-shadow: 0 0 5px #000;
+  padding-left: 150px;
+  font-family: "Dancing Script";
 }
-.specialDish p{
+.specialDish p {
   font-size: 1.5rem;
   color: #000;
   z-index: 1;
   transform: rotate(-90deg);
   position: absolute;
   left: 0;
-
 }
 
 .specialDish img {
   max-width: 20%;
   height: auto;
   border-radius: 12px;
- 
 }
 .special-heading {
   font-size: 1.2rem; /* Adjust size as needed */
@@ -277,14 +350,259 @@ body::-webkit-scrollbar {
   text-shadow: 0 0 2px #000; /* Optional: add shadow for better visibility */
   margin-bottom: 10px; /* Space below the heading */
 }
-@media (max-width: 768px){
-  .specialDish{
+@media (max-width: 768px) {
+  .specialDish {
     flex-direction: column;
   }
-  .specialDish h1{
+  .specialDish h1 {
+    text-align: center;
     font-size: 2rem;
   }
-  .specialDish img{
-    max-width: 40%;
+  .specialDish img {
+    max-width: 30%;
+    margin-left: 15%;
+  }
+  .specialDish p {
+    font-size: 1rem;
+  }
+}
+
+/* main menu starts here */
+
+/* Main Menu Section */
+.main-menu {
+  padding: 50px 0;
+  text-align: center;
+  background-image: repeating-linear-gradient(
+      0deg,
+      rgb(17, 17, 17) 0px,
+      rgb(17, 17, 17) 1px,
+      transparent 1px,
+      transparent 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(17, 17, 17) 0px,
+      rgb(17, 17, 17) 1px,
+      transparent 1px,
+      transparent 51px
+    ),
+    linear-gradient(90deg, hsl(49, 0%, 3%), hsl(49, 0%, 3%));
+  background-attachment: fixed;
+}
+
+.main-menu h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px; /* Increase gap between cards */
+  /* box-shadow: 0 0 10px #ff6347; */
+}
+
+.menu-item {
+  width: 450px; /* Increase size of the card */
+  height: 450px; /* Increase size of the card */
+  perspective: 1000px;
+  border-radius: 50%; /* Make the card circular */
+  margin: 50px;
+  position: relative;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 50%; /* Make the content circular */
+}
+
+.menu-item:hover .content {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: 50%; /* Make the front and back faces circular */
+}
+
+.front {
+  text-shadow: 0 0 10px #000;
+}
+.burger {
+  background: url(/images/chicken-burger-menu.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.pasta {
+  background: url(/images/pasta-menu.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.steak {
+  background: url(/images/steak-menu.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.dessert {
+  background: url(/images/dessert-menu.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.back {
+  background-color: #e55347;
+  transform: rotateY(180deg);
+  font-size: 1.3rem;
+  font-family: "Dancing Script";
+}
+
+.menu-filters {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.filter-button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #e55347;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.menu-item {
+  display: none; /* Initially hide all items */
+  width: 350px;
+  height: 350px;
+  perspective: 1000px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px #000;
+}
+
+.menu-item.show {
+  display: block; /* Show items when the class 'show' is added */
+}
+
+@media (min-width:400px) and (max-width: 768px) {
+  .menu-item {
+    /* border-radius: 0; */
+    /* height: 220px; */
+  }
+  .back {
+    font-size: 0.8rem;
+  }
+}
+
+/* footer starts here */
+
+.footer {
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 10px #000;
+  background-image: radial-gradient(
+      circle at 13% 47%,
+      rgba(140, 140, 140, 0.03) 0%,
+      rgba(140, 140, 140, 0.03) 25%,
+      transparent 25%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 28% 63%,
+      rgba(143, 143, 143, 0.03) 0%,
+      rgba(143, 143, 143, 0.03) 16%,
+      transparent 16%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 81% 56%,
+      rgba(65, 65, 65, 0.03) 0%,
+      rgba(65, 65, 65, 0.03) 12%,
+      transparent 12%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 26% 48%,
+      rgba(60, 60, 60, 0.03) 0%,
+      rgba(60, 60, 60, 0.03) 6%,
+      transparent 6%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 97% 17%,
+      rgba(150, 150, 150, 0.03) 0%,
+      rgba(150, 150, 150, 0.03) 56%,
+      transparent 56%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(25, 25, 25, 0.03) 0%,
+      rgba(25, 25, 25, 0.03) 36%,
+      transparent 36%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 55% 52%,
+      rgba(69, 69, 69, 0.03) 0%,
+      rgba(69, 69, 69, 0.03) 6%,
+      transparent 6%,
+      transparent 100%
+    ),
+    linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.footer .highlight {
+  color: #ff6347;
+}
+.footer span {
+  color: #e55347;
+}
+.footer h1,
+footer .highlight {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 530px) and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
   }
 }

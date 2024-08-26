@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="menu-filters">
+        <button class="filter-button" data-filter="all">All</button>
+        <button class="filter-button" data-filter="burger">Burgers</button>
+        <button class="filter-button" data-filter="pasta">Pastas</button>
+        <button class="filter-button" data-filter="steak">Steaks</button>
+        <button class="filter-button" data-filter="dessert">Desserts</button>
+      </section>
+      
+      <section class="menu-container">
+        <div class="menu-item burger">
+          <div class="content">
+            <div class="front">Burger 1</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item burger">
+          <div class="content">
+            <div class="front">Burger 2</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item burger">
+          <div class="content">
+            <div class="front">Burger 3</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item pasta">
+          <div class="content">
+            <div class="front">Pasta 1</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item pasta">
+          <div class="content">
+            <div class="front">Pasta 2</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item pasta">
+          <div class="content">
+            <div class="front">Pasta 3</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item steak">
+          <div class="content">
+            <div class="front">Steak 1</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item steak">
+          <div class="content">
+            <div class="front">Steak 2</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item dessert">
+          <div class="content">
+            <div class="front">Dessert 1</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+        <div class="menu-item dessert">
+          <div class="content">
+            <div class="front">Dessert 2</div>
+            <div class="back">Back</div>
+          </div>
+        </div>
+      </section>
+      <script>
+        document.querySelectorAll('.filter-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.getAttribute('data-filter');
+    
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.classList.remove('show');
+      if (filter === 'all' || item.classList.contains(filter)) {
+        item.classList.add('show');
+      }
+    });
+  });
+});
+
+      </script>
+</body>
+</html>

@@ -19,55 +19,155 @@
     />
   </head>
   <body>
-    <header class="header">
+  <!-- header starts here -->
+  <header class="header">
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#chefs-special">Chefs Special</a></li>
+        <li><a href="#menu">Menu</a></li>
+      </ul>
+    </nav>
+    <div class="header-content">
       <h1><span class="highlight">Acme</span> Bistro</h1>
       <p>
         Indulge in the finest flavors at
         <span class="highlight">Acme</span> Bistro, where every meal is a
         masterpiece
       </p>
-    </header>
-    <section class="horizontal-section">
-      <section class="about-section">
-        <div class="about-brand-name">
-          <h1><span class="highlight">Acme</span> Bistro</h1>
-        </div>
-        <div class="about-desc">
-          <h1>About Us</h1>
-          <span>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Dignissimos iusto quos numquam quo voluptates quidem, hic animi
-            sapiente fuga harum cum aperiam officia. Iusto facilis assumenda
-            porro itaque atque libero fuga nemo dolores hic illo! Excepturi,
-            facilis adipisci. Quo, alias?
-          </span>
-        </div>
-        <div class="about-img">
-          <img src="/images/about-section-image.avif" alt="" />
-        </div>
-      </section>
-      <section class="chef-special">
-        <div class="special-1 specialDish">
-          <p>Chefs Special</p>
-          <h1>Lemon Herb Roasted Chicken</h1>
-          <img src="/images/roasted-chicken.jpg" alt="Lemon Herb Roasted Chicken" />
-          <div class="line"></div>
-        </div>
-        <div class="special-2 specialDish">
-          <p>Chefs Special</p>
-          <h1>Urban Beast Burger</h1>
-          <img src="/images/beef-burger.jpg" alt="Urban Beast Burger" />
-          <div class="line"></div>
-        </div>
-        <div class="special-3 specialDish">
-          <p>Chefs Special</p>
-          <h1>Chocolate Cherry Elegance</h1>
-          <img src="/images/cherry-cake.jpg" alt="Chocolate Cherry Elegance" />
-          <div class="line"></div>
-        </div>
-      </section>
-      
+    </div>
+  </header>
+
+  <!-- section for horizontal scrolling starts here -->
+  <section class="horizontal-section">
+    <!-- about section starts here -->
+    <section id="about" class="about-section">
+      <div class="about-brand-name">
+        <h1><span class="highlight">Acme</span> Bistro</h1>
+      </div>
+      <div class="about-desc">
+        <h1>About Us</h1>
+        <span>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Dignissimos iusto quos numquam quo voluptates quidem, hic animi
+          sapiente fuga harum cum aperiam officia. Iusto facilis assumenda
+          porro itaque atque libero fuga nemo dolores hic illo! Excepturi,
+          facilis adipisci. Quo, alias?
+        </span>
+      </div>
+      <div class="about-img">
+        <img src="/images/about-section-image.avif" alt="" />
+      </div>
     </section>
+    <section id="chefs-special" class="chef-special">
+      <div class="special-1 specialDish">
+        <p>Chefs Special</p>
+        <h1>Lemon Herb Roasted Chicken</h1>
+        <img
+          src="/images/roasted-chicken.jpg"
+          alt="Lemon Herb Roasted Chicken"
+        />
+        <div class="line"></div>
+      </div>
+      <div class="special-2 specialDish">
+        <p>Chefs Special</p>
+        <h1>Urban Beast Burger</h1>
+        <img src="/images/beef-burger.jpg" alt="Urban Beast Burger" />
+        <div class="line"></div>
+      </div>
+      <div class="special-3 specialDish">
+        <p>Chefs Special</p>
+        <h1>Chocolate Cherry Elegance</h1>
+        <img src="/images/cherry-cake.jpg" alt="Chocolate Cherry Elegance" />
+        <div class="line"></div>
+      </div>
+    </section>
+  </section>
+  <section id="menu" class="main-menu">
+    <h1>Our Menu</h1>
+    <section class="menu-filters">
+      <button class="filter-button" data-filter="all">All</button>
+      <button class="filter-button" data-filter="burger">Burgers</button>
+      <button class="filter-button" data-filter="pasta">Pastas</button>
+      <button class="filter-button" data-filter="steak">Steaks</button>
+      <button class="filter-button" data-filter="dessert">Desserts</button>
+    </section>    
+      <section class="menu-container">
+        <div class="menu-item burger show">
+          <div class="content">
+            <div class="front">Burger 1</div>
+            <div class="back">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, culpa!</div>
+          </div>
+        </div>
+        <div class="menu-item burger show">
+          <div class="content">
+            <div class="front">Burger 2</div>
+            <div class="back">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, iure.</div>
+          </div>
+        </div>
+        <div class="menu-item burger show">
+          <div class="content">
+            <div class="front">Burger 3</div>
+            <div class="back">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, quidem.</div>
+          </div>
+        </div>
+        <div class="menu-item pasta show">
+          <div class="content">
+            <div class="front">Pasta 1</div>
+            <div class="back">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, sint.</div>
+          </div>
+        </div>
+        <div class="menu-item pasta show">
+          <div class="content">
+            <div class="front">Pasta 2</div>
+            <div class="back">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, facilis!</div>
+          </div>
+        </div>
+        <div class="menu-item pasta show">
+          <div class="content">
+            <div class="front">Pasta 3</div>
+            <div class="back">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, vero!</div>
+          </div>
+        </div>
+        <div class="menu-item steak show">
+          <div class="content">
+            <div class="front">Steak 1</div>
+            <div class="back">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque, aut!</div>
+          </div>
+        </div>
+        <div class="menu-item steak show">
+          <div class="content">
+            <div class="front">Steak 2</div>
+            <div class="back">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, iusto!</div>
+          </div>
+        </div>
+        <div class="menu-item dessert show">
+          <div class="content">
+            <div class="front">Dessert 1</div>
+            <div class="back">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, aliquam.</div>
+          </div>
+        </div>
+        <div class="menu-item dessert show">
+          <div class="content">
+            <div class="front">Dessert 2</div>
+            <div class="back">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, ratione?</div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <h1><span class="highlight">Acme</span> Bistro</h1>
+
+      <span>Designed & Developed by Mohib Khan</span>
+      <span>My email: khanmohib2001@gmail.com</span>
+    </footer>
+    
+
+
+    <!-- script tag for js -->
     <script src="script.js"></script>
   </body>
 </html>

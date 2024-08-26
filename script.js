@@ -15,3 +15,20 @@ container.addEventListener('wheel', (e) => {
         container.scrollLeft += e.deltaY;
     }
 });
+
+
+// JS for searching menu items
+
+document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.remove('show');
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.classList.add('show');
+        }
+      });
+    });
+  });
+  
